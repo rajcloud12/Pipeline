@@ -6,7 +6,13 @@ pipeline {
             steps {
                 withSonarQubeEnv('SonarQube') {
                     // Analyze the HTML/CSS files
-                  sh "Sonarqube/bin/sonar-scanner"
+                      sh '''
+                        sonar-scanner \
+                        -Dsonar.projectKey=sonar.projectKey=pipeline \
+                        -Dsonar.sources=. \
+                        -Dsonar.language=web \
+                        -Dsonar.sourceEncoding=UTF-8
+                    '''
                 }
             }
         }
