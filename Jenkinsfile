@@ -19,7 +19,7 @@ pipeline {
           withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhubpwd')]) {
             sh """
                 echo hello
-                Docker login -u ayush11122 -p ${dockerhubpwd}
+                
                 echo hello2
                 Docker push ayush11122/pipeline
                 echo hello3
