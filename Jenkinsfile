@@ -1,26 +1,15 @@
-// pipeline {
-//     agent any 
+pipeline {
+    agent any 
 
-//     stages {
-//         stage('Static Code Analysis') {
-//             steps {
-//                 withSonarQubeEnv('SonarQube') {
-//                     // Analyze the HTML/CSS files
-//                    echo "herlloo"
-//                 }
-//             }
-//         }
-node {
-  stage('SCM') {
-    checkout scm
-  }
-  stage('SonarQube Analysis') {
-    def scannerHome = tool 'SonarQube';
-    withSonarQubeEnv() {
-      sh "${scannerHome}/bin/sonar-scanner"
-    }
-  }
-}
+    stages {
+        stage('Static Code Analysis') {
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    // Analyze the HTML/CSS files
+                  sh "Sonarqube/bin/sonar-scanner"
+                }
+            }
+        }
 
       // stage("build docker image") {
       //   steps {
