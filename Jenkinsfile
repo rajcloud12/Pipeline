@@ -1,8 +1,8 @@
 pipeline {
   agent any 
-  environment{
-    DOCKER_TAG = getDockerTag{}
-  }
+  // environment{
+  //   DOCKER_TAG = getDockerTag{}
+  // }
     stages {
         // stage("git Checkout"){
         //   steps{
