@@ -2,6 +2,14 @@ pipeline {
     agent any 
 
     stages {
+        stage('Static Code Analysis') {
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    // Analyze the HTML/CSS files
+                    sh 'sonar-scanner'
+                }
+            }
+        }
 
       stage("build docker image") {
         steps {
