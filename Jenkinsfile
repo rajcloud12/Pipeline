@@ -16,15 +16,9 @@ pipeline {
       }
       stage("Push to DockerHub") {
         steps {
-          withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhubpwd')]) {
-            sh """
-                echo hello
-                
-                echo hello2
-                Docker push ayush11122/pipeline
-                echo hello3
-               """
-            }
+          // withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhubpwd')]) {
+            sh "Docker push ayush11122/pipeline"
+            // }
           }
       }
     }
