@@ -6,7 +6,7 @@ pipeline {
             steps {
                 withSonarQubeEnv('SonarQube') {
                     // Analyze the HTML/CSS files
-                     echo "aaa"
+                     echo "aaaz"
             }
         }
 
