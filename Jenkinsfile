@@ -11,14 +11,14 @@ pipeline {
         // }
       stage("build docker image") {
         steps {
-            sh "docker build . -t ayush11122/Pipeline:${DOCKER_TAG} " 
+            sh "docker build -t ayush11122/Pipeline . " 
         }
       }
     }
   }
   
-  def getDockerTag() {
-    def tag = sh script: 'get rev-parse HEAD', returnStdout: true
-    return tag
-  }
+  // def getDockerTag() {
+  //   def tag = sh script: 'get rev-parse HEAD', returnStdout: true
+  //   return tag
+  // }
  
