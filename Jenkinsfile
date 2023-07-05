@@ -1,8 +1,8 @@
 pipeline {
   agent any 
-  // environment{
-  //   DOCKER_TAG = getDockerTag{}
-  // }
+  environment{
+    DOCKER_TAG = getDockerTag{}
+  }
     stages {
         // stage("git Checkout"){
         //   steps{
@@ -11,7 +11,7 @@ pipeline {
         // }
       stage("build docker image") {
         steps {
-            sh "docker build -t ayush11122/pipeline . " 
+            sh "docker build . -t ayush11122/pipeline " 
         }
       }
       stage("Push to DockerHub") {
@@ -30,8 +30,8 @@ pipeline {
     }
 }
   
-  // def getDockerTag() {
-  //   def tag = sh script: 'get rev-parse HEAD', returnStdout: true
-  //   return tag
-  // }
+  def getDockerTag() {
+    def tag = sh script: 'get rev-parse HEAD', returnStdout: true
+    return tag
+  }
  
