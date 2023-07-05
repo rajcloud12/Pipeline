@@ -11,7 +11,7 @@ pipeline {
         // }
       stage("build docker image") {
         steps {
-            sh "docker build -t ayush11122/Pipeline . " 
+            sh "docker build -t ayush11122/pipeline . " 
         }
       }
     }
