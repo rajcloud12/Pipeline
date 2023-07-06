@@ -3,10 +3,13 @@ pipeline {
 
     stages {
         stage('Static Code Analysis') {
+             environment {
+            SONAR_URL = "http://15.207.54.59:9000"
+            }
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    // Analyze the HTML/CSS files
-                     echo "aaaz"
+                sonar-scanner -Dsonar.projectKey=pipeline -Dsonar.sources=pipeline -Dsonar.language=web -Dsonar.sourceEncoding=UTF-8 -Dsonar.host.url='http://15.207.54.59:9000' -Dsonar.login=sonarqube 
+                echo "aaaz"
             }
         }
 
