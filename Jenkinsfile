@@ -15,7 +15,7 @@ pipeline {
               -Dsonar.language=web \
               -Dsonar.sourceEncoding=UTF-8 \
               -Dsonar.host.url='http://15.207.54.59:9000' \
-              -Dsonar.login=sonarqube
+              -Dsonar.login=sonarQube
               """
                 echo "aaaz"
             }
