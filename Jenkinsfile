@@ -7,20 +7,16 @@ pipeline {
             SONAR_URL = "http://15.207.54.59:9000"
             }
             steps {
-                // withSonarQubeEnv('SonarQube') {
-              //  sh """
-              // sonar-scanner \
-              // -Dsonar.projectKey=pipeline \
-              // -Dsonar.sources=Pipeline \
-              // -Dsonar.language=web \
-              // -Dsonar.sourceEncoding=UTF-8 \
-              // -Dsonar.host.url='http://15.207.54.59:9000' \
-              // -Dsonar.login=sonarQube
-              // """
-                def scannerHome = tool 'SonarQube';
-                 withSonarQubeEnv() {
-                 sh "${scannerHome}/bin/sonar-scanner"
-                  }
+                withSonarQubeEnv('SonarQube') {
+               sh """
+              sonar-scanner \
+              -Dsonar.projectKey=pipeline \
+              -Dsonar.sources=Pipeline \
+              -Dsonar.language=web \
+              -Dsonar.sourceEncoding=UTF-8 \
+              -Dsonar.host.url='http://15.207.54.59:9000' \
+              -Dsonar.login=sonarQube
+              """
                 echo "aaaz"
             }
         }
@@ -42,6 +38,6 @@ pipeline {
       // }
     }
 }
-
+}
 
  
