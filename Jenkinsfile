@@ -11,7 +11,7 @@ pipeline {
                sh """
               sonar-scanner \
               -Dsonar.projectKey=pipeline \
-              -Dsonar.sources=pipeline \
+              -Dsonar.sources=Pipeline \
               -Dsonar.language=web \
               -Dsonar.sourceEncoding=UTF-8 \
               -Dsonar.host.url='http://15.207.54.59:9000' \
