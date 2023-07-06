@@ -7,18 +7,22 @@ pipeline {
             SONAR_URL = "http://15.207.54.59:9000"
             }
             steps {
-                withSonarQubeEnv('SonarQube') {
-                sh """
-              sonar-scanner \
-              -Dsonar.projectKey=pipeline \
-              -Dsonar.sources=Pipeline \
-              -Dsonar.language=web \
-              -Dsonar.sourceEncoding=UTF-8 \
-              -Dsonar.host.url='http://15.207.54.59:9000' \
-              -Dsonar.login=sonarQube
-              """
-                echo "aaaz"
-            }
+              steps {
+               withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
+              sh 'cd Pipeline && mvn sonar:sonar -Dsonar.login=$SONAR_AUTH_TOKEN -Dsonar.host.url=${SONAR_URL}'
+               }                             
+            //     withSonarQubeEnv('SonarQube') {
+            //     sh """
+            //   sonar-scanner \
+            //   -Dsonar.projectKey=pipeline \
+            //   -Dsonar.sources=Pipeline \
+            //   -Dsonar.language=web \
+            //   -Dsonar.sourceEncoding=UTF-8 \
+            //   -Dsonar.host.url='http://15.207.54.59:9000' \
+            //   -Dsonar.login=sonarQube
+            //   """
+            //     echo "aaaz"
+            // }
         }
 
       // stage("build docker image") {
@@ -37,6 +41,7 @@ pipeline {
       //     }
       // }
     }
+}
 }
 }
 
