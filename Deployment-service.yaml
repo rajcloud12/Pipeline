@@ -13,7 +13,7 @@ spec:
         app: pipeline
     spec:
       containers:
-        - name: pipeline-Container
+        - name: pipeline-container
           image: ayush111122/pipeline
           ports:
             - containerPort: 8080
