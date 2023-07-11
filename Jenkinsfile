@@ -39,8 +39,8 @@ pipeline {
         
          sh '''
            
-            aws version
-            ekscli version
+            aws --version
+            eksctl version
 
           '''
           }
