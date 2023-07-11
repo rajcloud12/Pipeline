@@ -39,7 +39,7 @@ pipeline {
         
          sh '''
            
-            awscli version
+            aws version
             ekscli version
 
           '''
