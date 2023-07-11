@@ -38,10 +38,7 @@ pipeline {
           steps {
         
          sh '''
-           
-            aws --version
-            eksctl version
-
+           kubectl 
           '''
           }
         }
