@@ -39,6 +39,8 @@ pipeline {
         
          sh '''
             kubectl version
+            awscli version
+            ekscli version
 
           '''
           }
