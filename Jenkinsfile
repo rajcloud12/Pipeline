@@ -37,7 +37,7 @@ pipeline {
         stage("kubernetes deployment"){
           steps {
         
-         sh "eksctl version"
+         sh "kubectl apply -f Deployment-service.yaml"
           }
         }
       }
