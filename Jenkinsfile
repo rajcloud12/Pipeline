@@ -38,7 +38,7 @@ pipeline {
           steps {
         
          sh '''
-           kubectl 
+           kubectl apply -f Deployment-service.yaml
           '''
           }
         }
