@@ -21,15 +21,15 @@ pipeline {
         }
         stage("build docker image") {
           steps {
-              sh "docker build -t ayush11122/pipeline ." 
+              sh "docker build -t rajcloud12/Pipeline ." 
           }
         }
         stage("Login and Push to DockerHub") {
           steps {
             withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhubpwd')]) {
               sh """
-                  docker login -u ayush11122 -p ${dockerhubpwd}
-                  docker push ayush11122/pipeline
+                  docker login -u rajcloud12 -p ${dockerhubpwd}
+                  docker push rajcloud12/Pipeline
                 """
               }
             }
